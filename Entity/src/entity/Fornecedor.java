@@ -6,6 +6,16 @@ public class Fornecedor {
     private String nomeFornecedor;
     private String telefoneFornecedor;
     private int cnpj;
+    private String nomeContatoFornecedor;
+
+    public String getNomeContatoFornecedor() {
+        return nomeContatoFornecedor;
+    }
+
+    public void setNomeContatoFornecedor(String nomeContatoFornecedor) {
+        this.nomeContatoFornecedor = nomeContatoFornecedor;
+    }
+    
 
     public int getIdFornecedor() {
         return idFornecedor;
