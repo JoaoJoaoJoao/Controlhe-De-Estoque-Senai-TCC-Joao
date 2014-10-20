@@ -10,15 +10,15 @@ package entity;
  *
  * @author joao_victor1
  */
-public class GrupoProdutos {
+public class CategoriaGrupoProdutos {
     private Integer idGrupoProdutos;
     private String nome;
 
-    public Integer getIdCategoriaAlimentos() {
+    public Integer getIdCategoriaGrupoProdutos() {
         return idGrupoProdutos;
     }
 
-    public void setIdCategoriaAlimentos(Integer idCategoriaAlimentos) {
+    public void setIdCategoriaGrupoProdutos(Integer idCategoriaAlimentos) {
         this.idGrupoProdutos = idCategoriaAlimentos;
     }
 
