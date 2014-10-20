@@ -8,6 +8,16 @@ public class Produto {
     private double valorProduto;
     private int estoqueIdeal;
     private int estoqueMin;
+    private int unidade;
+
+    public int getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(int unidade) {
+        this.unidade = unidade;
+    }
+    
 
     public int getEstoqueIdeal() {
         return estoqueIdeal;
