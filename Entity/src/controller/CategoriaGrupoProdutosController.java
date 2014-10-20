@@ -6,6 +6,8 @@
 
 package controller;
 
+import dao.CategoriaProdutosDAO;
+import entity.CategoriaGrupoProdutos;
 import java.util.List;
 
 /**
@@ -13,11 +15,11 @@ import java.util.List;
  * @author joao_victor1
  */
 public class CategoriaGrupoProdutosController {
-        private final CategoriaAlimentoDAO objCategoriaAlimentoDAO = new CategoriaAlimentoDAO();
+        private final CategoriaProdutosDAO objCategoriaProdutosDAO = new CategoriaProdutosDAO();
 
-    public String insert(CategoriaAlimentos objCategoriaAlimentos) {
+    public String insert(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
 
-        if (objCategoriaAlimentoDAO.insert(objCategoriaAlimentos) == true) {
+        if (objCategoriaProdutosDAO.insert(objCategoriaGrupoProdutos) == true) {
             return "Salvo com sucesso";
         } else {
             return "Não foi possível cadastrar uma nova categoria";
@@ -25,9 +27,9 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public String delete(CategoriaAlimentos objCategoriaAlimentos) {
+    public String delete(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
 
-        if (objCategoriaAlimentoDAO.delete(objCategoriaAlimentos) == true) {
+        if (objCategoriaProdutosDAO.delete(objCategoriaGrupoProdutos) == true) {
             return "Removido com sucesso";
         } else {
             return "Não foi possível remover a categoria";
@@ -35,9 +37,9 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public String update(CategoriaAlimentos objCategoriaAlimentos) {
+    public String update(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
 
-        if (objCategoriaAlimentoDAO.update(objCategoriaAlimentos) == true) {
+        if (objCategoriaProdutosDAO.update(objCategoriaGrupoProdutos) == true) {
             return "Atualizado com sucesso";
         } else {
             return "Não foi possível atualizar a categoria";
@@ -45,15 +47,15 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public List<CategoriaAlimentos> getAll() {
+    public List<CategoriaGrupoProdutos> getAll() {
 
-        return objCategoriaAlimentoDAO.getAll();
+        return objCategoriaProdutosDAO.getAll();
 
     }
 
-    public CategoriaAlimentos getById(int id) {
+    public CategoriaGrupoProdutos getById(int id) {
 
-        return objCategoriaAlimentoDAO.getById(id);
+        return objCategoriaProdutosDAO.getById(id);
 
     }
 }
