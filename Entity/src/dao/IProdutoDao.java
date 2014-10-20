@@ -3,7 +3,8 @@ package dao;
 import entity.Produto;
 import java.util.List;
 
-public interface ProdutoDao {
+public interface IProdutoDao {
+
 
     public Produto salvar(Produto produto);
 

@@ -7,6 +7,8 @@ idProduto int not null auto_increment,
 nomeProduto varchar (100),
 custoProduto double ,
 valorProduto double ,
+estoqueAtual int ,
+estoqueMin int ,
 unidade int  ,
 primary key (idProduto));
 
