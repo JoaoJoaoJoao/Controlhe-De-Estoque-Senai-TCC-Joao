@@ -2,10 +2,29 @@ package entity;
 
 public class Produto {
 
-    private int idProduto;
+    private Integer idProduto;
     private String nomeProduto;
     private double custoProduto;
     private double valorProduto;
+    private int estoqueIdeal;
+    private int estoqueMin;
+
+    public int getEstoqueIdeal() {
+        return estoqueIdeal;
+    }
+
+    public void setEstoqueIdeal(int estoqueIdeal) {
+        this.estoqueIdeal = estoqueIdeal;
+    }
+
+    public int getEstoqueMin() {
+        return estoqueMin;
+    }
+
+    public void setEstoqueMin(int estoqueMin) {
+        this.estoqueMin = estoqueMin;
+    }
+
 
     public int getIdProduto() {
         return idProduto;
@@ -38,7 +57,5 @@ public class Produto {
     public void setValorProduto(double valorProduto) {
         this.valorProduto = valorProduto;
     }
-    
-    
-    
+
 }

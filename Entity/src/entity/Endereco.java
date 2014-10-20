@@ -1,16 +1,14 @@
 package entity;
 
 public class Endereco {
-      
+
     private int idEndereco;
     private String bairro;
     private String cidade;
     private String rua;
     private int cep;
-    //uf em combobox
+   //uf em combobox
 
-    
-    
     public int getIdEndereco() {
         return idEndereco;
     }
@@ -50,5 +48,5 @@ public class Endereco {
     public void setCep(int cep) {
         this.cep = cep;
     }
-    
+
 }

@@ -7,6 +7,15 @@ public class Fornecedor {
     private String telefoneFornecedor;
     private int cnpj;
     private String nomeContatoFornecedor;
+    private int inscricaoEstadual;
+
+    public int getInscricaoEstadual() {
+        return inscricaoEstadual;
+    }
+
+    public void setInscricaoEstadual(int inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
+    }
 
     public String getNomeContatoFornecedor() {
         return nomeContatoFornecedor;
@@ -15,7 +24,6 @@ public class Fornecedor {
     public void setNomeContatoFornecedor(String nomeContatoFornecedor) {
         this.nomeContatoFornecedor = nomeContatoFornecedor;
     }
-    
 
     public int getIdFornecedor() {
         return idFornecedor;
