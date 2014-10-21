@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package view;
-
-import dao.ProdutoDaoMySql;
+ 
 import entity.Produto;
 import javax.swing.JOptionPane;
-import sun.rmi.transport.TransportConstants;
 
 /**
  *
@@ -21,6 +19,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
      */
     public TelaCadastroProduto() {
         initComponents();
+        setLocationRelativeTo(null);  
     }
 
     TelaCadastroProduto(Object object, boolean b) {
@@ -276,32 +275,33 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        txtNome.setText("");
+public void limpaTela (){
+     txtNome.setText("");
         txtEstoqueAtual.setText(" ");
         txtEstoqueMin.setText(" ");
         txtValorCusto.setText(" ");
         txtValorSaida.setText(" ");
+}
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        limpaTela();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-        Produto pro = new Produto();
+        Produto produto = new Produto();
         
-        pro.setNomeProduto(txtNome.getText());
-        pro.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
-        pro.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
-        pro.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
-        pro.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
+        produto.setNomeProduto(txtNome.getText());
+        produto.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
+        produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
+        produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
+        produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
         
-        ProdutoDaoMySql dao = new ProdutoDaoMySql();
-        dao.salvar(pro);
-        
+      
         
         
         
+        limpaTela();
            
     
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -311,9 +311,10 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 public void insertProduto(Produto produto) {
 
-            ProdutoDaoMySql dao = new ProdutoDaoMySql();
-            dao.salvar(produto);
-            JOptionPane.showMessageDialog(null,"Salvo com sucesso");}
+//            ProdutoDaoMySql dao = new ProdutoDaoMySql();
+//            dao.salvar(produto);
+//            JOptionPane.showMessageDialog(null,"Salvo com sucesso");
+}
     /**
      * @param args the command line arguments
      */
