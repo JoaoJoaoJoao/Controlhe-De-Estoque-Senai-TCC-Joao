@@ -2,9 +2,6 @@ package entity;
 
 public class Produto {
 
-    public static void salvar(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private Integer idProduto;
     private String nomeProduto;
@@ -40,11 +37,11 @@ public class Produto {
     }
 
 
-    public int getIdProduto() {
+    public Integer getIdProduto() {
         return idProduto;
     }
 
-    public void setIdProduto(int idProduto) {
+    public void setIdProduto(Integer idProduto) {
         this.idProduto = idProduto;
     }
 
@@ -70,6 +67,9 @@ public class Produto {
 
     public void setValorProduto(double valorProduto) {
         this.valorProduto = valorProduto;
+    }
+     public static void salvar(Produto produto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
