@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package view;
- 
+
 import entity.Produto;
 import javax.swing.JOptionPane;
-
 
 public class TelaCadastroProduto extends javax.swing.JFrame {
 
@@ -16,7 +15,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
      */
     public TelaCadastroProduto() {
         initComponents();
-        setLocationRelativeTo(null);  
+        setLocationRelativeTo(null);
     }
 
     TelaCadastroProduto(Object object, boolean b) {
@@ -302,46 +301,65 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-public void limpaTela (){
-     txtNome.setText("");
-        txtEstoqueAtual.setText(" ");
-        txtEstoqueMin.setText(" ");
-        txtValorCusto.setText(" ");
-        txtValorSaida.setText(" ");
-}
+    public void limpaTela() {
+        txtNome.setText("");
+        txtEstoqueAtual.setText("");
+        txtEstoqueMin.setText("");
+        txtValorCusto.setText("");
+        txtValorSaida.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         limpaTela();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+
         Produto produto = new Produto();
-        
+
         produto.setNomeProduto(txtNome.getText());
         produto.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
         produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
         produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
         produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
+
         
-      
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
         limpaTela();
-           
-    
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      dispose();
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-public void insertProduto(Produto produto) {
+    public void insertProduto(Produto produto) {
 
 //            ProdutoDaoMySql dao = new ProdutoDaoMySql();
 //            dao.salvar(produto);
 //            JOptionPane.showMessageDialog(null,"Salvo com sucesso");
-}
+    }
+
     /**
      * @param args the command line arguments
      */
