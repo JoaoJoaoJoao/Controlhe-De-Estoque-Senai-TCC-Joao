@@ -1,6 +1,6 @@
 package entity;
 
-public class Fornecedor {
+public class Fornecedor extends Endereco {
 
     private int idFornecedor;
     private String nomeFornecedor;
