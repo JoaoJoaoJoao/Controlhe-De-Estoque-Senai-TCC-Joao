@@ -5,15 +5,21 @@
  */
 package view;
 
+import controller.CategoriaGrupoProdutosController;
+import entity.CategoriaGrupoProdutos;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author gabriel_es
  */
 public class TelaDeGrupos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCadastroGrupos
-     */
+    private CategoriaGrupoProdutosController controler = new CategoriaGrupoProdutosController();
+    private List<CategoriaGrupoProdutos> listaCProdutos;
+
     public TelaDeGrupos() {
         initComponents();
         setLocationRelativeTo(null);
@@ -42,8 +48,18 @@ public class TelaDeGrupos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jButton2.setText("Alterar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -64,11 +80,11 @@ public class TelaDeGrupos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton4.setText("Voltar");
@@ -86,7 +102,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -94,8 +110,9 @@ public class TelaDeGrupos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,6 +120,35 @@ public class TelaDeGrupos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        TelaCadastroDeGrupo telaCadastroGrupos = new TelaCadastroDeGrupo();
+        telaCadastroGrupos.setVisible(true);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+    private void listarCProduto() {
+        listaCProdutos = controler.getAll();
+        DefaultTableModel modelo = (DefaultTableModel) this.jList1.getModel();
+        modelo.setRowCount(listaCProdutos.size());
+
+        for (int i = 0; i < listaCProdutos.size(); i++) {
+
+            modelo.setValueAt(listaCProdutos.get(i).getNome(), i, 0);
+
+        }
+    }
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir?");
+        if (resposta == 0) {
+
+            CategoriaGrupoProdutos cProduto = new CategoriaGrupoProdutos();
+            //Criar o metodo getByName
+            //alimento = controler.getByName(jTableBuscaAlimentos.getValueAt(jTableBuscaAlimentos.getSelectedRow(), 0).toString());
+            JOptionPane.showMessageDialog(rootPane, controler.delete(cProduto));
+            listarCProduto();
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
