@@ -2,6 +2,12 @@ create database ProjetoTCC;
 
 use ProjetoTCC;
 
+create table ProjetoTCC.CategoriaProduto(
+idCategoriaGrupoProduto int not null,
+nomeGrupo varchar (50)
+primary key (idCategoriaGrupoProduto )); 
+
+
 create table ProjetoTCC.Produto(
 idProduto int not null auto_increment,
 nomeProduto varchar (100),
