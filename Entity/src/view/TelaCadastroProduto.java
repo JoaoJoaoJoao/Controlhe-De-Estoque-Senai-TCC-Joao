@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.CategoriaGrupoProdutosController;
@@ -14,25 +9,21 @@ import javax.swing.JOptionPane;
 
 public class TelaCadastroProduto extends javax.swing.JFrame {
 
-      private Produto produto = new Produto();
-      private ProdutoController produtoController = new ProdutoController();
+    private Produto produto = new Produto();
+    private ProdutoController produtoController = new ProdutoController();
+    
     public TelaCadastroProduto() {
         initComponents();
         setLocationRelativeTo(null);
+        atualizaComboBox();
     }
 
     TelaCadastroProduto(Object object, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void atualizaComboBox() {
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        jComboBox1.setModel(modelo);
-        CategoriaGrupoProdutosController categoriaProdutoController = new CategoriaGrupoProdutosController();
-        for (CategoriaGrupoProdutos alimento : categoriaProdutoController.getAll()) {
-            modelo.addElement(alimento);
-        }
-    }
+ 
+ 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -228,12 +219,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(111, 111, 111))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -246,22 +231,27 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9)
-                        .addGap(148, 148, 148)))
+                        .addGap(148, 148, 148))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(41, 41, 41)
+                                        .addComponent(jLabel1)))
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +315,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         jTextField2.setText("");
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
         limpaTela();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -338,30 +327,26 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
         produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
         produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
-        
-          if (produto.getIdProduto()== null) {
-            //pego a categoria do alimento
+
+        if (produto.getIdProduto() == null) {
+            //pego a categoria do produto
             CategoriaGrupoProdutos categoriaProdutos = (CategoriaGrupoProdutos) jComboBox1.getModel().getSelectedItem();
 
-            JOptionPane.showMessageDialog(null, produtoController.insert(produto, categoriaProdutos.getIdCategoriaGrupoProdutos()));
+           JOptionPane.showMessageDialog(null, produtoController.insert(produto, categoriaProdutos.getIdCategoriaGrupoProdutos()));
             this.dispose();
-            // Senão altera os dados do ID já existente
-        } else {
-       
-        produto.setNomeProduto(txtNome.getText());
-        produto.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
-        produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
-        produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
-        produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
+           // Senão altera os dados do ID já existente
+    } else {
+
+            produto.setNomeProduto(txtNome.getText());
+            produto.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
+            produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
+            produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
+            produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
 
             JOptionPane.showMessageDialog(rootPane, produtoController.update(produto));
             this.dispose();
         }
 
-        
-      
-
-        
         limpaTela();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -373,9 +358,19 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         TelaCadastroDeGrupo telaCadastroGrupos = new TelaCadastroDeGrupo();
         telaCadastroGrupos.setVisible(true);
+        atualizaComboBox();
     }//GEN-LAST:event_jButton4ActionPerformed
+      private void atualizaComboBox() {
+          
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        jComboBox1.setModel(modelo);
+        CategoriaGrupoProdutosController categoriaProdutosController = new CategoriaGrupoProdutosController();
+        for (CategoriaGrupoProdutos produto : categoriaProdutosController.getAll()) {
+            modelo.addElement(produto);
+        }
+      }
     public void insertProduto(Produto produto) {
-
+//
 //            ProdutoDaoMySql dao = new ProdutoDaoMySql();
 //            dao.salvar(produto);
 //            JOptionPane.showMessageDialog(null,"Salvo com sucesso");

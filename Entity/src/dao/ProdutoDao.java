@@ -17,9 +17,9 @@ import java.util.List;
  *
  * @author joao_victor1
  */
-public class ProdutoDao {
+public class ProdutoDao  extends MySQL{
 
-    private static final String SQL_INSERIR_PRODUTO = "INSERT INTO ProjetoTCC.Produto(nomeProduto,custoProduto,valorProduto,estoqueIdeal,estoqueMin,unidade) VALUES (?,?,?,?,?,?)";
+    private static final String SQL_INSERIR_PRODUTO = "INSERT INTO ProjetoTCC.Produto(nomeProduto,custoProduto,valorProduto,estoqueAtual,estoqueMin,unidade) VALUES (?,?,?,?,?,?)";
     private static final String SQL_EDITAR_PRODUTO = "UPDATE alimento SET nomeProduto = ? WHERE idProduto = ?";
     private static final String SQL_DELETAR_PRODUTO = "DELETE FROM ProjetoTCC.Produto WHERE idProduto = ?";
     private static final String SQL_GET_BY_ID_PRODUTO = "SELECT idProduto, nomeProduto FROM ProjetoTCC.Produto WHERE idProduto = ?";
@@ -200,7 +200,7 @@ public class ProdutoDao {
         return listaProduto;
     }
 
-    private Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
+
+  
 }

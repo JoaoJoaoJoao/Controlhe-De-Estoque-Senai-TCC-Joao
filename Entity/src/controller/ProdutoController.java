@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package controller;
 
@@ -10,10 +5,7 @@ import dao.ProdutoDao;
 import entity.Produto;
 import java.util.List;
 
-/**
- *
- * @author gabriel_es
- */
+
 public class ProdutoController {
     
     private final ProdutoDao objProdutoDao = new ProdutoDao();

@@ -40,9 +40,9 @@ public class TelaCadastroDeGrupo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setText("Nome");
+        jLabel1.setText(" Nome ");
 
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class TelaCadastroDeGrupo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CategoriaGrupoProdutos Cproduto = new CategoriaGrupoProdutos();
-   Cproduto.setNome(jTextField1.getText());
+        Cproduto.setNome(jTextField1.getText());
     
 
         if (Cproduto.getIdCategoriaGrupoProdutos()== null) {
@@ -111,6 +111,7 @@ public class TelaCadastroDeGrupo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, CprodutoController.update(Cproduto));
             this.dispose();
         }
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

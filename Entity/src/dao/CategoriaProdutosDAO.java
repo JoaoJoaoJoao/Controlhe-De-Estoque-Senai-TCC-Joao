@@ -12,16 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- *
- * @author joao_victor1
- */
 public class CategoriaProdutosDAO extends MySQL{
         private static final String SQL_INSERIR_CATEGORIA_PRODUTO = "INSERT INTO ProjetoTCC.CategoriaProduto(nomeGrupo) VALUES (?)";
     private static final String SQL_EDITAR_CATEGORIA_PRODUTO = "UPDATE ProjetoTCC.CategoriaProduto SET nomeGrupo = ? WHERE idCategoriaGrupoProduto = ?";
     private static final String SQL_DELETAR_CATEGORIA_PRODUTO = "DELETE FROM ProjetoTCC.CategoriaProduto WHERE idCategoriaGrupoProduto = ?";
-    private static final String SQL_GET_BY_ID_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nome FROM ProjetoTCC.CategoriaProduto WHERE idCategoriaGrupoProduto = ?";
-    private static final String SQL_GET_ALL_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nome FROM ProjetoTCC.CategoriaProduto";
+    private static final String SQL_GET_BY_ID_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nomeGrupo FROM ProjetoTCC.CategoriaProduto WHERE idCategoriaGrupoProduto = ?";
+    private static final String SQL_GET_ALL_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nomeGrupo FROM ProjetoTCC.CategoriaProduto";
 
     public boolean insert(CategoriaGrupoProdutos categoriaGrupoProdutos) {
 
@@ -29,11 +25,10 @@ public class CategoriaProdutosDAO extends MySQL{
         ResultSet generatedKeys = null;
 
         try {
-            PreparedStatement preparacao = conexao.prepareStatement(SQL_INSERIR_CATEGORIA_PRODUTO);
-
-            preparacao.setString(1, categoriaGrupoProdutos.getNome());
-            preparacao.execute(); //Executando o PreparedStatement
-            preparacao.close(); //Fechando o PreparedStatement
+            try (PreparedStatement preparacao = conexao.prepareStatement(SQL_INSERIR_CATEGORIA_PRODUTO)) {
+                preparacao.setString(1, categoriaGrupoProdutos.getNome());
+                preparacao.execute();
+            }
 
             return true;
 
@@ -157,7 +152,7 @@ public class CategoriaProdutosDAO extends MySQL{
 
             while (resultado.next()) {
                 CategoriaGrupoProdutos categoriaGrupoProdutos = new CategoriaGrupoProdutos();
-                categoriaGrupoProdutos.setIdCategoriaGrupoProdutos(resultado.getInt("idCategoriaGrupoProdutos"));
+                categoriaGrupoProdutos.setIdCategoriaGrupoProdutos(resultado.getInt("idCategoriaGrupoProduto"));
                 categoriaGrupoProdutos.setNome(resultado.getString("nomeGrupo"));
                 listaCategoriaProduto.add(categoriaGrupoProdutos);
             }
