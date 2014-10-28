@@ -58,4 +58,12 @@ public class CategoriaGrupoProdutosController {
         return objCategoriaProdutosDAO.getById(id);
 
     }
+
+    public List<CategoriaGrupoProdutos> getByName(String nomeGrupo) {
+       return  objCategoriaProdutosDAO.getByName(nomeGrupo);
+    }
+
+ 
+
+ 
 }

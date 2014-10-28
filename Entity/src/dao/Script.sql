@@ -3,8 +3,8 @@ create database ProjetoTCC;
 use ProjetoTCC;
 
 create table ProjetoTCC.CategoriaProduto(
-idCategoriaGrupoProduto int not null,
-nomeGrupo varchar (50)
+idCategoriaGrupoProduto int not null auto_increment ,
+nomeGrupo varchar (50),
 primary key (idCategoriaGrupoProduto )); 
 
 

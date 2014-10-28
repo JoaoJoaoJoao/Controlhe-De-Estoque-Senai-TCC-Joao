@@ -318,6 +318,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         limpaTela();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         Produto produto = new Produto();
@@ -369,16 +370,8 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             modelo.addElement(produto);
         }
       }
-    public void insertProduto(Produto produto) {
-//
-//            ProdutoDaoMySql dao = new ProdutoDaoMySql();
-//            dao.salvar(produto);
-//            JOptionPane.showMessageDialog(null,"Salvo com sucesso");
-    }
-
-    /**
-     * @param args the command line arguments
-     */
+  
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
