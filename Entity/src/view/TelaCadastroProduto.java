@@ -11,6 +11,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
     private Produto produto = new Produto();
     private ProdutoController produtoController = new ProdutoController();
+
     
     public TelaCadastroProduto() {
         initComponents();

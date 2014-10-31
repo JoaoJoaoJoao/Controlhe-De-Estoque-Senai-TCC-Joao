@@ -112,6 +112,8 @@ public class TelaCadastroDeGrupo extends javax.swing.JFrame {
             this.dispose();
         }
         dispose();
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

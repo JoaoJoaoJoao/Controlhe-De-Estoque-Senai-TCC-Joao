@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import controller.CategoriaGrupoProdutosController;
@@ -12,10 +8,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author gabriel_es
- */
 public class TelaDeGrupos extends javax.swing.JFrame {
 
     private CategoriaGrupoProdutosController controler = new CategoriaGrupoProdutosController();
@@ -25,10 +17,9 @@ public class TelaDeGrupos extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         listarCProduto();
-           listarCategoriaProdutos(listaCProdutos = controler.getAll());
+        listarCategoriaProdutos(listaCProdutos = controler.getAll());
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -138,18 +129,19 @@ public class TelaDeGrupos extends javax.swing.JFrame {
             modelo.setValueAt(listaCProduto.get(i).getNome(), i, 0);
 
         }
- }
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-          List<CategoriaGrupoProdutos> listaCProduto = new ArrayList<CategoriaGrupoProdutos>();
+        CategoriaGrupoProdutos cgp;
+        Integer cgpSelecionado = 
         listaCProduto = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
 
-        TelaAlterarGrupo telaAlterarGrupo = new TelaAlterarGrupo(null, rootPaneCheckingEnabled, listaCProduto.get(0));
-        telaAlterarGrupo.setVisible(true);
-        listarCategoriaProdutos(listaCProduto = controler.getAll());
+       TelaAlterarGrupo telaAlterarGrupo = new TelaAlterarGrupo(listaCProduto.get(0));
+      telaAlterarGrupo.setVisible(true);
+       listarCategoriaProdutos(listaCProduto = controler.getAll());
     }//GEN-LAST:event_jButton2ActionPerformed
     private void listarCProduto() {
         listaCProdutos = controler.getAll();
@@ -168,18 +160,16 @@ public class TelaDeGrupos extends javax.swing.JFrame {
 
             CategoriaGrupoProdutos cProduto = new CategoriaGrupoProdutos();
             //Criar o metodo getByName
-                List<CategoriaGrupoProdutos> listaCProduto = new ArrayList<CategoriaGrupoProdutos>();
+            List<CategoriaGrupoProdutos> listaCProduto = new ArrayList<CategoriaGrupoProdutos>();
             listaCProduto = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(rootPane, controler.delete(listaCProduto.get(0)));
             listarCategoriaProdutos(listaCProduto = controler.getAll());
-      
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
     public static void main(String args[]) {
-      
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaDeGrupos().setVisible(true);
