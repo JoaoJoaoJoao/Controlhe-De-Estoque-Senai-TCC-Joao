@@ -2,7 +2,7 @@ package entity;
 
 public class Fornecedor extends Endereco {
 
-    private int idFornecedor;
+    private Integer idFornecedor;
     private String nomeFornecedor;
     private String telefoneFornecedor;
     private int cnpj;
@@ -25,11 +25,11 @@ public class Fornecedor extends Endereco {
         this.nomeContatoFornecedor = nomeContatoFornecedor;
     }
 
-    public int getIdFornecedor() {
+    public Integer getIdFornecedor() {
         return idFornecedor;
     }
 
-    public void setIdFornecedor(int idFornecedor) {
+    public void setIdFornecedor(Integer idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
 

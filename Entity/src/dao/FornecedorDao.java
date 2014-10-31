@@ -21,13 +21,13 @@ import java.util.List;
  */
 public class FornecedorDao  extends MySQL{
     
-    private static final String SQL_INSERIR_FORNECEDOR= "INSERT INTO  ProjetoTCC.Fornecedor(nomeFornecedor,telefoneForncedor,cnpj,nomeContatoFornecedor) VALUES (?,?,?,?,?,?)";
-    private static final String SQL_EDITAR_FORNECEDOR = "UPDATE alimento SET nomeProduto = ? WHERE idProduto = ?";
-    private static final String SQL_DELETAR_FORNECEDOR = "DELETE FROM ProjetoTCC.Produto WHERE idProduto = ?";
-    private static final String SQL_GET_BY_ID_FORNECEDOR = "SELECT idProduto, nomeProduto FROM ProjetoTCC.Produto WHERE idProduto = ?";
+    private static final String SQL_INSERIR_FORNECEDOR= "INSERT INTO  ProjetoTCC.Fornecedor(nomeFornecedor,telefoneForncedor,cnpj,inscricaoEstadual,nomeContatoFornecedor) VALUES (?,?,?,?,?,?)";
+    private static final String SQL_EDITAR_FORNECEDOR = "UPDATE ProjetoTCC.Fornecedor SET nomeFornecedor = ? WHERE idFornecedor = ?";
+    private static final String SQL_DELETAR_FORNECEDOR = "DELETE FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
+    private static final String SQL_GET_BY_ID_FORNECEDOR = "SELECT idFornecedor, nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
     private static final String SQL_GET_ALL_FORNECEDOR = "SELECT a.idAlimento, a.nome, ca.idCategoriaAlimentos, ca.nome FROM alimento as a LEFT JOIN alimentoCategoriaAlimentos as aca ON a.idAlimento = aca.idAlimento LEFT JOIN CategoriaAlimentos as ca ON aca.idCategoriaAlimentos  = ca.idCategoriaAlimentos";
 
-    public boolean insert(Fornecedor fornecedor, int idProduto) {
+    public boolean insert(Fornecedor fornecedor) {
 
         Connection conexao = this.getConnection();
         ResultSet generatedKeys = null;
@@ -35,13 +35,12 @@ public class FornecedorDao  extends MySQL{
         try {
             PreparedStatement preparacao = conexao.prepareStatement(SQL_INSERIR_FORNECEDOR, PreparedStatement.RETURN_GENERATED_KEYS);
 
-//            preparacao.setString(1, fornecedor.getNomeProduto());
-//            preparacao.setDouble(2, fornecedor.getCustoProduto());
-//            preparacao.setDouble(3, fornecedor.getValorProduto());
-//            preparacao.setInt(4, fornecedor.getEstoqueIdeal());
-//            preparacao.setInt(5, fornecedor.getEstoqueMin());
-//            preparacao.setInt(6, fornecedor.getUnidade());
-//            preparacao.execute(); //Executndo o PreparedStatement
+            preparacao.setString(1, fornecedor.getNomeFornecedor());
+            preparacao.setString(2, fornecedor.getTelefoneFornecedor());
+           preparacao.setInt(3, fornecedor.getCnpj());
+            preparacao.setInt(4, fornecedor.getInscricaoEstadual());
+           preparacao.setString(5, fornecedor.getNomeContatoFornecedor());
+           preparacao.execute(); //Executndo o PreparedStatement
 
             //pego o id da inserção
             generatedKeys = preparacao.getGeneratedKeys();

@@ -334,7 +334,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             CategoriaGrupoProdutos categoriaProdutos = (CategoriaGrupoProdutos) jComboBox1.getModel().getSelectedItem();
 
            JOptionPane.showMessageDialog(null, produtoController.insert(produto, categoriaProdutos.getIdCategoriaGrupoProdutos()));
-            this.dispose();
+         
            // Senão altera os dados do ID já existente
     } else {
 
@@ -345,7 +345,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
 
             JOptionPane.showMessageDialog(rootPane, produtoController.update(produto));
-            this.dispose();
+      
         }
 
         limpaTela();

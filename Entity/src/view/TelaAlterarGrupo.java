@@ -15,6 +15,10 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
 
     }
 
+    TelaAlterarGrupo(Object object, boolean rootPaneCheckingEnabled, CategoriaGrupoProdutos get) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
    
 

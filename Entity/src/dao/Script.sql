@@ -20,8 +20,9 @@ primary key (idProduto));
 
 create table ProjetoTCC.Fornecedor(
 idFornecedor int not null auto_increment,
-nomeFornecedor varchar (100)  ,
+nomeFornecedor varchar (100)  , 
 telefoneForncedor varchar (20)  ,
 cnpj int   ,
 nomeContatoFornecedor varchar(100),
+ inscricaoEstadual int,
 primary key (idFornecedor)); 
