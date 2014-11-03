@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class CategoriaProdutosDAO extends MySQL {
 
@@ -19,7 +20,7 @@ public class CategoriaProdutosDAO extends MySQL {
     private static final String SQL_GET_BY_NAME_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto,nomeGrupo FROM ProjetoTCC.CategoriaProduto WHERE nomeGrupo=?";
 
     public boolean insert(CategoriaGrupoProdutos categoriaGrupoProdutos) {
-
+JOptionPane.showMessageDialog(null,"insert");
         Connection conexao = this.getConnection();
         ResultSet generatedKeys = null;
 

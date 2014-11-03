@@ -9,6 +9,7 @@ package controller;
 import dao.CategoriaProdutosDAO;
 import entity.CategoriaGrupoProdutos;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +19,7 @@ public class CategoriaGrupoProdutosController {
         private final CategoriaProdutosDAO objCategoriaProdutosDAO = new CategoriaProdutosDAO();
 
     public String insert(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
-
+       
         if (objCategoriaProdutosDAO.insert(objCategoriaGrupoProdutos) == true) {
             return "Salvo com sucesso";
         } else {

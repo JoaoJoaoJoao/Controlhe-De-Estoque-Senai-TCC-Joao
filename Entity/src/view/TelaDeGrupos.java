@@ -52,6 +52,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
                 {null},
                 {null},
                 {null},
+                {null},
                 {null}
             },
             new String [] {
@@ -134,7 +135,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         int selecionado = jTable1.getSelectedRow();
-
+        
         String nome = jTable1.getValueAt(selecionado, 0).toString();
 
    CategoriaGrupoProdutos cProdutos = controler.getByName(nome);
@@ -157,7 +158,8 @@ public class TelaDeGrupos extends javax.swing.JFrame {
 
         for (int i = 0; i < listaGrupoP.size(); i++) {
 
-            jTableT.setValueAt(listaGrupoP.get(i).getNome(), i, 0);
+            jTableT.setValueAt(listaGrupoP.get(i).getIdCategoriaGrupoProdutos(), i, 0);
+            jTableT.setValueAt(listaGrupoP.get(i).getNome(), i, 1);
 
         }
 

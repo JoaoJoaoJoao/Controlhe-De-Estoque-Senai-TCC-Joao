@@ -132,6 +132,7 @@ public class ProdutoDao  extends MySQL{
         Produto produto = new Produto();
 
         try {
+           
             PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_ID_PRODUTO);
 
             preparacao.setInt(1, id);
