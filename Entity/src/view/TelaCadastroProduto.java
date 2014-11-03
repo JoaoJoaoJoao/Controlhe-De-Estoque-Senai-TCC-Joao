@@ -314,6 +314,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         txtValorSaida.setText("");
         jTextField1.setText("");
         jTextField2.setText("");
+         jComboBox1.setSelectedIndex(0);
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         limpaTela();

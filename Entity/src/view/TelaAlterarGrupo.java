@@ -1,22 +1,34 @@
-
 package view;
 
 import controller.CategoriaGrupoProdutosController;
 import entity.CategoriaGrupoProdutos;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class TelaAlterarGrupo extends javax.swing.JFrame {
-
+    private String  nomeAnterior;
+    
+    
+    
+    
     private CategoriaGrupoProdutosController CprodutoController = new CategoriaGrupoProdutosController();
+    private CategoriaGrupoProdutos cProdutos;
 
-    public TelaAlterarGrupo( CategoriaGrupoProdutos cProdutos) {
+    public TelaAlterarGrupo(CategoriaGrupoProdutos cProdutos) {
         initComponents();
         setLocationRelativeTo(null);
-
+  if (cProdutos == null) {
+            cProdutos = new CategoriaGrupoProdutos();
+        } else {
+            cProdutos = cProdutos;
+            txtNome.setText(cProdutos.getNome());
+          
+        }
+        CprodutoController = new CategoriaGrupoProdutosController();
+        
     }
-
-
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -32,6 +44,12 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setText(" Nome ");
+
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Alterar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,20 +102,50 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- CategoriaGrupoProdutos cProdutos = new CategoriaGrupoProdutos();
+        
+
+//update tbgrupo set nome = novo where nome = nomeAnterior
+
+
+// Pegando os valores preenchidos nos campos e guardando nas variavéis
         cProdutos.setNome(txtNome.getText());
-            JOptionPane.showMessageDialog(rootPane, CprodutoController.update(cProdutos));      
+        
+        // If's Verificando se os campos obrigatórios estão preenchidos
+        String obrigatorio = "";
+        boolean erro = false;
+        if (cProdutos.getNome().equals("")) {
+            obrigatorio += " Nome Grupo produto \n";
+            erro = true;
+        }
+
+        // Se existir erro ele mostra na Tela o erro e mostra os campos que estão faltando preencher.
+        if (erro) {
+            JOptionPane.showMessageDialog(rootPane, "Favor preencher os Campos Obrigatórios, \n " + obrigatorio);
+        } else {
+            // If verificando se o IdUsuário é nulo se for ele vai inserir os dados do Material Apoio no BD
+            if (cProdutos.getIdCategoriaGrupoProdutos() == null) {
+                JOptionPane.showMessageDialog(null, CprodutoController.insert(cProdutos));
+                this.dispose();
+                // If verificando se o IdUsuário é nulo se for ele vai inserir os dados do Material Apoio no BD
+            } else {
+                JOptionPane.showMessageDialog(null, CprodutoController.update(cProdutos));
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
     public static void main(String args[]) {
-  
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-             
-            TelaAlterarGrupo telinha = new TelaAlterarGrupo(null);
-            telinha.setVisible(true);
-            
-            
+
+                TelaAlterarGrupo telinha = new TelaAlterarGrupo(null);
+                telinha.setVisible(true);
+
             }
         });
     }

@@ -1,4 +1,3 @@
-
 package view;
 
 import controller.CategoriaGrupoProdutosController;
@@ -16,7 +15,6 @@ public class TelaDeGrupos extends javax.swing.JFrame {
     public TelaDeGrupos() {
         initComponents();
         setLocationRelativeTo(null);
-        listarCProduto();
         listarCategoriaProdutos(listaCProdutos = controler.getAll());
     }
 
@@ -135,15 +133,37 @@ public class TelaDeGrupos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        CategoriaGrupoProdutos cgp;
-        Integer cgpSelecionado = 
-        listaCProduto = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+        int selecionado = jTable1.getSelectedRow();
 
-       TelaAlterarGrupo telaAlterarGrupo = new TelaAlterarGrupo(listaCProduto.get(0));
-      telaAlterarGrupo.setVisible(true);
-       listarCategoriaProdutos(listaCProduto = controler.getAll());
+        String nome = jTable1.getValueAt(selecionado, 0).toString();
+
+   CategoriaGrupoProdutos cProdutos = controler.getByName(nome);
+
+        if (cProdutos == null) {
+            JOptionPane.showMessageDialog(null, "Selecione um item da tabela");
+        } else {
+
+            TelaAlterarGrupo telaAlterar = new TelaAlterarGrupo(cProdutos);
+            telaAlterar.setVisible(true);
+        }
+
+        listaCProdutos = controler.getAll();
+        listarGrupoProdutos(listaCProdutos);
     }//GEN-LAST:event_jButton2ActionPerformed
-    private void listarCProduto() {
+    private void listarGrupoProdutos(List<CategoriaGrupoProdutos> listaGrupoP) {
+
+        DefaultTableModel jTableT = (DefaultTableModel) this.jTable1.getModel();
+        jTableT.setRowCount(listaGrupoP.size());
+
+        for (int i = 0; i < listaGrupoP.size(); i++) {
+
+            jTableT.setValueAt(listaGrupoP.get(i).getNome(), i, 0);
+
+        }
+
+    }
+
+    private void listarCProduto(List<CategoriaGrupoProdutos> lista) {
         listaCProdutos = controler.getAll();
         DefaultTableModel modelo = (DefaultTableModel) this.jTable1.getModel();
         modelo.setRowCount(listaCProdutos.size());
@@ -161,7 +181,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
             CategoriaGrupoProdutos cProduto = new CategoriaGrupoProdutos();
             //Criar o metodo getByName
             List<CategoriaGrupoProdutos> listaCProduto = new ArrayList<CategoriaGrupoProdutos>();
-            listaCProduto = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+            listaCProduto = (List<CategoriaGrupoProdutos>) controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(rootPane, controler.delete(listaCProduto.get(0)));
             listarCategoriaProdutos(listaCProduto = controler.getAll());
 

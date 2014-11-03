@@ -59,8 +59,8 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public List<CategoriaGrupoProdutos> getByName(String nomeGrupo) {
-       return  objCategoriaProdutosDAO.getByName(nomeGrupo);
+    public CategoriaGrupoProdutos getByName(String nome) {
+       return  objCategoriaProdutosDAO.getByName(nome);
     }
 
  

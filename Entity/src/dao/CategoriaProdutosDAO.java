@@ -17,6 +17,7 @@ public class CategoriaProdutosDAO extends MySQL {
     private static final String SQL_GET_BY_ID_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nomeGrupo FROM ProjetoTCC.CategoriaProduto WHERE idCategoriaGrupoProduto = ?";
     private static final String SQL_GET_ALL_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nomeGrupo FROM ProjetoTCC.CategoriaProduto";
     private static final String SQL_GET_BY_NAME_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto,nomeGrupo FROM ProjetoTCC.CategoriaProduto WHERE nomeGrupo=?";
+
     public boolean insert(CategoriaGrupoProdutos categoriaGrupoProdutos) {
 
         Connection conexao = this.getConnection();
@@ -174,42 +175,34 @@ public class CategoriaProdutosDAO extends MySQL {
         return listaCategoriaProduto;
     }
 
-    public List<CategoriaGrupoProdutos> getByName(String nomeGrupo) {
-        List<CategoriaGrupoProdutos> listCategoriaProduto = new ArrayList();
-
+    public CategoriaGrupoProdutos getByName(String nomeGrupo) {
         Connection conexao = this.getConnection();
 
-        try {
+        CategoriaGrupoProdutos gPro = new CategoriaGrupoProdutos();
 
+        try {
             PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_NAME_CATEGORIA_PRODUTO);
             preparacao.setString(1, nomeGrupo);
-
             ResultSet resultado = preparacao.executeQuery();
 
             while (resultado.next()) {
-                CategoriaGrupoProdutos cProdutos = new CategoriaGrupoProdutos();
-                cProdutos.setIdCategoriaGrupoProdutos(resultado.getInt("idCategoriaGrupoProduto"));
-                cProdutos.setNome(resultado.getString("nomeGrupo"));
-                listCategoriaProduto.add(cProdutos);
+                gPro.setIdCategoriaGrupoProdutos(resultado.getInt("idCategoriaGrupoProduto"));
+                gPro.setNome(resultado.getString("nomeGrupo"));
+
             }
 
             resultado.close();
             preparacao.close();
 
         } catch (SQLException erro) {
-
             erro.printStackTrace();
-
         } finally {
-
             try {
                 conexao.close();
             } catch (SQLException erro) {
                 erro.printStackTrace();
             }
-
         }
-        return listCategoriaProduto;
-
+        return gPro;
     }
 }
