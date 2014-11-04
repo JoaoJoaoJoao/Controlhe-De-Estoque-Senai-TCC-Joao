@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package dao;
 
 import entity.Produto;
@@ -13,17 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author joao_victor1
- */
-public class ProdutoDao  extends MySQL{
+public class ProdutoDao extends MySQL {
 
     private static final String SQL_INSERIR_PRODUTO = "INSERT INTO ProjetoTCC.Produto(nomeProduto,custoProduto,valorProduto,estoqueAtual,estoqueMin,unidade) VALUES (?,?,?,?,?,?)";
     private static final String SQL_EDITAR_PRODUTO = "UPDATE alimento SET nomeProduto = ? WHERE idProduto = ?";
     private static final String SQL_DELETAR_PRODUTO = "DELETE FROM ProjetoTCC.Produto WHERE idProduto = ?";
     private static final String SQL_GET_BY_ID_PRODUTO = "SELECT idProduto, nomeProduto FROM ProjetoTCC.Produto WHERE idProduto = ?";
-    private static final String SQL_GET_ALL_PRODUTO = "SELECT a.idAlimento, a.nome, ca.idCategoriaAlimentos, ca.nome FROM alimento as a LEFT JOIN alimentoCategoriaAlimentos as aca ON a.idAlimento = aca.idAlimento LEFT JOIN CategoriaAlimentos as ca ON aca.idCategoriaAlimentos  = ca.idCategoriaAlimentos";
+    private static final String SQL_GET_ALL_PRODUTO = "SELECT idProduto,nomeProduto FROM ProjetoTCC.Produto WHERE nomeProduto=?";
+    private static final String SQL_GET_BY_NAME_PRODUTO = "SELECT idProduto,nomeProduto FROM ProjetoTCC.Produto WHERE nomeProduto=?";
 
     public boolean insert(Produto produto, int idProduto) {
 
@@ -62,7 +56,7 @@ public class ProdutoDao  extends MySQL{
             }
         }
         return true;
-    
+
     }
 
     public boolean update(Produto produto) {
@@ -132,7 +126,7 @@ public class ProdutoDao  extends MySQL{
         Produto produto = new Produto();
 
         try {
-           
+
             PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_ID_PRODUTO);
 
             preparacao.setInt(1, id);
@@ -201,7 +195,35 @@ public class ProdutoDao  extends MySQL{
         return listaProduto;
     }
 
-   
+    public Produto getByName(String nomeProduto) {
+        Connection conexao = this.getConnection();
 
-  
+        Produto pro = new Produto();
+
+        try {
+            PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_NAME_PRODUTO);
+            preparacao.setString(1, nomeProduto);
+            ResultSet resultado = preparacao.executeQuery();
+
+            while (resultado.next()) {
+                pro.setIdProduto(resultado.getInt("idProduto"));
+                pro.setNomeProduto(resultado.getString("nomeProduto"));
+
+            }
+
+            resultado.close();
+            preparacao.close();
+
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException erro) {
+                erro.printStackTrace();
+            }
+        }
+        return pro;
+    }
+
 }

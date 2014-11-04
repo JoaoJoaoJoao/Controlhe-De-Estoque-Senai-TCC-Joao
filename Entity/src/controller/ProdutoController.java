@@ -51,4 +51,8 @@ public class ProdutoController {
         return objProdutoDao.getById(id);
 
     }
+     public Produto getByName(String nome) {
+       return  objProdutoDao.getByName(nome);
+    }
+
 }
