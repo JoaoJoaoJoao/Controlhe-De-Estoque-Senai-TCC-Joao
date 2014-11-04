@@ -15,7 +15,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
     public TelaDeGrupos() {
         initComponents();
         setLocationRelativeTo(null);
-        listarCategoriaProdutos(listaCProdutos = controler.getAll());
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -177,15 +177,14 @@ public class TelaDeGrupos extends javax.swing.JFrame {
         }
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir?");
+          int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir?");
         if (resposta == 0) {
 
-            CategoriaGrupoProdutos cProduto = new CategoriaGrupoProdutos();
+            CategoriaGrupoProdutos cProdutos = new CategoriaGrupoProdutos();
             //Criar o metodo getByName
-            List<CategoriaGrupoProdutos> listaCProduto = new ArrayList<CategoriaGrupoProdutos>();
-            listaCProduto = (List<CategoriaGrupoProdutos>) controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-            JOptionPane.showMessageDialog(rootPane, controler.delete(listaCProduto.get(0)));
-            listarCategoriaProdutos(listaCProduto = controler.getAll());
+            cProdutos = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+            JOptionPane.showMessageDialog(rootPane, controler.delete(cProdutos));
+             listarCategoriaProdutos(listaCProdutos = controler.getAll());
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
