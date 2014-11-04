@@ -15,7 +15,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
     public TelaDeGrupos() {
         initComponents();
         setLocationRelativeTo(null);
-        
+        listarCProduto(listaCProdutos);
     }
 
     @SuppressWarnings("unchecked")
