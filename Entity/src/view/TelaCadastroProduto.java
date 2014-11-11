@@ -142,6 +142,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         jLabel2.setText("Nome do Grupo");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

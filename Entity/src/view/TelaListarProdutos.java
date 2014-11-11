@@ -116,7 +116,6 @@ public class TelaListarProdutos extends javax.swing.JFrame {
             produtos = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(rootPane, controler.delete(produtos));
             listarProdutos(listaProdutos = controler.getAll());
-
         }    }//GEN-LAST:event_jButton2ActionPerformed
     private void listarProdutos(List<Produto> listaProduto) {
 
@@ -126,6 +125,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         for (int i = 0; i < listaProduto.size(); i++) {
 
             modelo.setValueAt(listaProduto.get(i).getNomeProduto(), i, 0);
+            modelo.setValueAt(listaProduto.get(i).getNomeProduto(), i, 1);
 
         }
     }
