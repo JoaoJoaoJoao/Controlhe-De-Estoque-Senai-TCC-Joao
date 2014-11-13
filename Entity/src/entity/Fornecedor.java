@@ -11,6 +11,15 @@ public class Fornecedor {
     private String cidade;
     private int cep;
     private String rua;
+    private String uf;
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
 
     public String getBairro() {
         return bairro;

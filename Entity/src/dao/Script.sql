@@ -16,6 +16,7 @@ valorProduto double ,
 estoqueAtual int ,
 estoqueMin int ,
 unidade int  ,
+categoria ProjetoTCC.CategoriaProduto,
 primary key (idProduto));
 
 create table ProjetoTCC.Fornecedor(
@@ -29,4 +30,5 @@ bairro varchar(100),
 cidade varchar (100),
 cep int,
 rua varchar(100),
+uf char (2),
 primary key (idFornecedor)); 

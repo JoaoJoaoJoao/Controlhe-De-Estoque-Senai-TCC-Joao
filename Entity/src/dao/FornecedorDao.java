@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
-
 
 import entity.Fornecedor;
 import java.sql.Connection;
@@ -15,9 +13,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FornecedorDao  extends MySQL{
-    
-    private static final String SQL_INSERIR_FORNECEDOR= "INSERT INTO  ProjetoTCC.Fornecedor(nomeFornecedor,telefoneForncedor,cnpj,inscricaoEstadual,bairro,cidade,cep,rua) VALUES (?,?,?,?,?,?,?,?)";
+public class FornecedorDao extends MySQL {
+
+    private static final String SQL_INSERIR_FORNECEDOR = "INSERT INTO  ProjetoTCC.Fornecedor(nomeFornecedor,telefoneForncedor,cnpj,inscricaoEstadual,bairro,cidade,cep,rua,uf) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_EDITAR_FORNECEDOR = "UPDATE ProjetoTCC.Fornecedor SET nomeFornecedor = ? WHERE idFornecedor = ?";
     private static final String SQL_DELETAR_FORNECEDOR = "DELETE FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
     private static final String SQL_GET_BY_ID_FORNECEDOR = "SELECT idFornecedor, nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
@@ -33,19 +31,15 @@ public class FornecedorDao  extends MySQL{
 
             preparacao.setString(1, fornecedor.getNomeFornecedor());
             preparacao.setString(2, fornecedor.getTelefoneFornecedor());
-           preparacao.setInt(3, fornecedor.getCnpj());
+            preparacao.setInt(3, fornecedor.getCnpj());
             preparacao.setInt(4, fornecedor.getInscricaoEstadual());
-           preparacao.setString(5, fornecedor.getBairro());
-           preparacao.setString(6, fornecedor.getCidade());
-           preparacao.setInt(7, fornecedor.getCep());
-           preparacao.setString(8, fornecedor.getRua());
-           
-           
-           
-           
-           
-           
-           preparacao.execute(); //Executndo o PreparedStatement
+            preparacao.setString(5, fornecedor.getBairro());
+            preparacao.setString(6, fornecedor.getCidade());
+            preparacao.setInt(7, fornecedor.getCep());
+            preparacao.setString(8, fornecedor.getRua());
+            preparacao.setString(9, fornecedor.getUf());
+
+            preparacao.execute(); //Executndo o PreparedStatement
 
             //pego o id da inserção
             generatedKeys = preparacao.getGeneratedKeys();
@@ -68,7 +62,7 @@ public class FornecedorDao  extends MySQL{
             }
         }
         return true;
-    
+
     }
 
     public boolean update(Fornecedor fornecedor) {
@@ -179,7 +173,7 @@ public class FornecedorDao  extends MySQL{
             ResultSet resultado = preparacao.executeQuery();
 
             while (resultado.next()) {
-               Fornecedor fornecedor = new Fornecedor();
+                Fornecedor fornecedor = new Fornecedor();
 
                 fornecedor.setIdFornecedor(resultado.getInt("idFornecedor"));
                 fornecedor.setNomeFornecedor(resultado.getString("nomeFornecedor"));
@@ -206,5 +200,4 @@ public class FornecedorDao  extends MySQL{
         return listaFornecedor;
     }
 
-    
 }

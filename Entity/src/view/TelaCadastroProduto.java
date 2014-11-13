@@ -12,7 +12,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private Produto produto = new Produto();
     private ProdutoController produtoController = new ProdutoController();
 
-    
     public TelaCadastroProduto() {
         initComponents();
         setLocationRelativeTo(null);
@@ -22,9 +21,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     TelaCadastroProduto(Object object, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
- 
- 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -301,11 +297,9 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
     public void limpaTela() {
         txtNome.setText("");
@@ -315,7 +309,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         txtValorSaida.setText("");
         jTextField1.setText("");
         jTextField2.setText("");
-         jComboBox1.setSelectedIndex(0);
+        jComboBox1.setSelectedIndex(0);
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         limpaTela();
@@ -331,15 +325,15 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
         produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
         produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
-
+        
         if (produto.getIdProduto() == null) {
             //pego a categoria do produto
-            CategoriaProduto categoriaProdutos = (CategoriaProduto) jComboBox1.getModel().getSelectedItem();
+           // produto.setCategoria( (CategoriaProduto) jComboBox1.getModel().getSelectedItem());
 
-           JOptionPane.showMessageDialog(null, produtoController.insert(produto, categoriaProdutos.getIdCategoriaGrupoProdutos()));
-         
-           // Senão altera os dados do ID já existente
-    } else {
+           JOptionPane.showMessageDialog(null, produtoController.insert(produto));
+
+            // Senão altera os dados do ID já existente
+        } else {
 
             produto.setNomeProduto(txtNome.getText());
             produto.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
@@ -348,7 +342,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
 
             JOptionPane.showMessageDialog(rootPane, produtoController.update(produto));
-      
+
         }
 
         limpaTela();
@@ -365,42 +359,17 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         atualizaComboBox();
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-      private void atualizaComboBox() {
-          
+    private void atualizaComboBox() {
+
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         jComboBox1.setModel(modelo);
         CategoriaGrupoProdutosController categoriaProdutosController = new CategoriaGrupoProdutosController();
         for (CategoriaProduto produto : categoriaProdutosController.getAll()) {
             modelo.addElement(produto);
         }
-      }
-  
-   
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    }
 
-        /* Create and display the form */
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaCadastroProduto().setVisible(true);
