@@ -2,7 +2,7 @@ package view;
 
 import controller.CategoriaGrupoProdutosController;
 import controller.ProdutoController;
-import entity.CategoriaGrupoProdutos;
+import entity.CategoriaProduto;
 import entity.Produto;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -334,7 +334,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         if (produto.getIdProduto() == null) {
             //pego a categoria do produto
-            CategoriaGrupoProdutos categoriaProdutos = (CategoriaGrupoProdutos) jComboBox1.getModel().getSelectedItem();
+            CategoriaProduto categoriaProdutos = (CategoriaProduto) jComboBox1.getModel().getSelectedItem();
 
            JOptionPane.showMessageDialog(null, produtoController.insert(produto, categoriaProdutos.getIdCategoriaGrupoProdutos()));
          
@@ -363,13 +363,14 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         TelaCadastroDeGrupo telaCadastroGrupos = new TelaCadastroDeGrupo();
         telaCadastroGrupos.setVisible(true);
         atualizaComboBox();
+        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
       private void atualizaComboBox() {
           
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         jComboBox1.setModel(modelo);
         CategoriaGrupoProdutosController categoriaProdutosController = new CategoriaGrupoProdutosController();
-        for (CategoriaGrupoProdutos produto : categoriaProdutosController.getAll()) {
+        for (CategoriaProduto produto : categoriaProdutosController.getAll()) {
             modelo.addElement(produto);
         }
       }

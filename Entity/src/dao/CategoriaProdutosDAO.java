@@ -1,6 +1,6 @@
 package dao;
 
-import entity.CategoriaGrupoProdutos;
+import entity.CategoriaProduto;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -19,8 +19,7 @@ public class CategoriaProdutosDAO extends MySQL {
     private static final String SQL_GET_ALL_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto, nomeGrupo FROM ProjetoTCC.CategoriaProduto";
     private static final String SQL_GET_BY_NAME_CATEGORIA_PRODUTO = "SELECT idCategoriaGrupoProduto,nomeGrupo FROM ProjetoTCC.CategoriaProduto WHERE nomeGrupo=?";
 
-    public boolean insert(CategoriaGrupoProdutos categoriaGrupoProdutos) {
-JOptionPane.showMessageDialog(null,"insert");
+    public boolean insert(CategoriaProduto categoriaGrupoProdutos) {
         Connection conexao = this.getConnection();
         ResultSet generatedKeys = null;
 
@@ -44,7 +43,7 @@ JOptionPane.showMessageDialog(null,"insert");
         return false;
     }
 
-    public boolean update(CategoriaGrupoProdutos categoriaGrupoProdutos) {
+    public boolean update(CategoriaProduto categoriaGrupoProdutos) {
         Connection conexao = this.getConnection();
         try {
 
@@ -74,7 +73,7 @@ JOptionPane.showMessageDialog(null,"insert");
         return false;
     }
 
-    public boolean delete(CategoriaGrupoProdutos categoriaGrupoProdutos) {
+    public boolean delete(CategoriaProduto categoriaGrupoProdutos) {
         Connection conexao = this.getConnection();
         try {
 
@@ -103,11 +102,11 @@ JOptionPane.showMessageDialog(null,"insert");
         return false;
     }
 
-    public CategoriaGrupoProdutos getById(int id) {
+    public CategoriaProduto getById(int id) {
 
         Connection conexao = this.getConnection();
 
-        CategoriaGrupoProdutos categoriaGrupoProdutos = new CategoriaGrupoProdutos();
+        CategoriaProduto categoriaGrupoProdutos = new CategoriaProduto();
 
         try {
             PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_ID_CATEGORIA_PRODUTO);
@@ -142,8 +141,8 @@ JOptionPane.showMessageDialog(null,"insert");
         return categoriaGrupoProdutos;
     }
 
-    public List<CategoriaGrupoProdutos> getAll() {
-        List<CategoriaGrupoProdutos> listaCategoriaProduto = new ArrayList();
+    public List<CategoriaProduto> getAll() {
+        List<CategoriaProduto> listaCategoriaProduto = new ArrayList();
         Connection conexao = this.getConnection();
         try {
 
@@ -151,7 +150,7 @@ JOptionPane.showMessageDialog(null,"insert");
             ResultSet resultado = preparacao.executeQuery();
 
             while (resultado.next()) {
-                CategoriaGrupoProdutos categoriaGrupoProdutos = new CategoriaGrupoProdutos();
+                CategoriaProduto categoriaGrupoProdutos = new CategoriaProduto();
                 categoriaGrupoProdutos.setIdCategoriaGrupoProdutos(resultado.getInt("idCategoriaGrupoProduto"));
                 categoriaGrupoProdutos.setNome(resultado.getString("nomeGrupo"));
                 listaCategoriaProduto.add(categoriaGrupoProdutos);
@@ -176,10 +175,10 @@ JOptionPane.showMessageDialog(null,"insert");
         return listaCategoriaProduto;
     }
 
-    public CategoriaGrupoProdutos getByName(String nomeGrupo) {
+    public CategoriaProduto getByName(String nomeGrupo) {
         Connection conexao = this.getConnection();
 
-        CategoriaGrupoProdutos gPro = new CategoriaGrupoProdutos();
+        CategoriaProduto gPro = new CategoriaProduto();
 
         try {
             PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_NAME_CATEGORIA_PRODUTO);

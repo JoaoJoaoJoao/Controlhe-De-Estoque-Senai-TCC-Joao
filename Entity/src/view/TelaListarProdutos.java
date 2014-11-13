@@ -1,7 +1,7 @@
 package view;
 
 import controller.ProdutoController;
-import entity.CategoriaGrupoProdutos;
+import entity.CategoriaProduto;
 import entity.Produto;
 import java.util.List;
 import javax.swing.JOptionPane;

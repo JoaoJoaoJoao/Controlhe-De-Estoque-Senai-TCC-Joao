@@ -7,7 +7,7 @@
 package controller;
 
 import dao.CategoriaProdutosDAO;
-import entity.CategoriaGrupoProdutos;
+import entity.CategoriaProduto;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class CategoriaGrupoProdutosController {
         private final CategoriaProdutosDAO objCategoriaProdutosDAO = new CategoriaProdutosDAO();
 
-    public String insert(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
+    public String insert(CategoriaProduto objCategoriaGrupoProdutos) {
        
         if (objCategoriaProdutosDAO.insert(objCategoriaGrupoProdutos) == true) {
             return "Salvo com sucesso";
@@ -28,7 +28,7 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public String delete(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
+    public String delete(CategoriaProduto objCategoriaGrupoProdutos) {
 
         if (objCategoriaProdutosDAO.delete(objCategoriaGrupoProdutos) == true) {
             return "Removido com sucesso";
@@ -38,7 +38,7 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public String update(CategoriaGrupoProdutos objCategoriaGrupoProdutos) {
+    public String update(CategoriaProduto objCategoriaGrupoProdutos) {
 
         if (objCategoriaProdutosDAO.update(objCategoriaGrupoProdutos) == true) {
             return "Atualizado com sucesso";
@@ -48,19 +48,19 @@ public class CategoriaGrupoProdutosController {
 
     }
 
-    public List<CategoriaGrupoProdutos> getAll() {
+    public List<CategoriaProduto> getAll() {
 
         return objCategoriaProdutosDAO.getAll();
 
     }
 
-    public CategoriaGrupoProdutos getById(int id) {
+    public CategoriaProduto getById(int id) {
 
         return objCategoriaProdutosDAO.getById(id);
 
     }
 
-    public CategoriaGrupoProdutos getByName(String nome) {
+    public CategoriaProduto getByName(String nome) {
        return  objCategoriaProdutosDAO.getByName(nome);
     }
 

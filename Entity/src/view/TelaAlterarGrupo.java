@@ -1,7 +1,7 @@
 package view;
 
 import controller.CategoriaGrupoProdutosController;
-import entity.CategoriaGrupoProdutos;
+import entity.CategoriaProduto;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +12,13 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
     private String nomeAnterior;
 
     private CategoriaGrupoProdutosController CprodutoController = new CategoriaGrupoProdutosController();
-    private CategoriaGrupoProdutos cProdutos;
+    private CategoriaProduto cProdutos;
 
-    public TelaAlterarGrupo(CategoriaGrupoProdutos cProdutos) {
+    public TelaAlterarGrupo(CategoriaProduto cProdutos) {
         initComponents();
         setLocationRelativeTo(null);
         if (cProdutos == null) {
-            cProdutos = new CategoriaGrupoProdutos();
+            cProdutos = new CategoriaProduto();
 
         } else {
 

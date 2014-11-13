@@ -2,7 +2,7 @@
 package entity;
 
 
-public class CategoriaGrupoProdutos {
+public class CategoriaProduto {
     private Integer idGrupoProdutos;
     private String nome;
 

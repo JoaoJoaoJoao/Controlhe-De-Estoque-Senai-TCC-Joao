@@ -10,6 +10,15 @@ public class Produto {
     private int estoqueIdeal;
     private int estoqueMin;
     private int unidade;
+    private CategoriaProduto categoria;
+
+    public CategoriaProduto getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaProduto categoria) {
+        this.categoria = categoria;
+    }
 
     public int getUnidade() {
         return unidade;

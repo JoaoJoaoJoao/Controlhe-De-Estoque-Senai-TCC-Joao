@@ -8,7 +8,7 @@ package view;
 
 import controller.CategoriaGrupoProdutosController;
 import controller.ProdutoController;
-import entity.CategoriaGrupoProdutos;
+import entity.CategoriaProduto;
 import entity.Produto;
 import javax.swing.JOptionPane;
 
@@ -98,21 +98,21 @@ public class TelaCadastroDeGrupo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CategoriaGrupoProdutos Cproduto = new CategoriaGrupoProdutos();
+        CategoriaProduto Cproduto = new CategoriaProduto();
         Cproduto.setNome(jTextField1.getText());
     
 
         if (Cproduto.getIdCategoriaGrupoProdutos()== null) {
             JOptionPane.showMessageDialog(null, CprodutoController.insert(Cproduto));
             this.dispose();
-            // Senão altera os dados do ID já existente
         } else {
             Cproduto.setNome(jTextField1.getText());
             JOptionPane.showMessageDialog(rootPane, CprodutoController.update(Cproduto));
             this.dispose();
         }
         dispose();
-        
+        TelaCadastroProduto tl = new TelaCadastroProduto();
+        tl.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
