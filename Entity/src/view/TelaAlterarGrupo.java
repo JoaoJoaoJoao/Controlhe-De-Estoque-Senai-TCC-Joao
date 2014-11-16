@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class TelaAlterarGrupo extends javax.swing.JFrame {
 
     private String nomeAnterior;
-
+   
     private CategoriaGrupoProdutosController CprodutoController = new CategoriaGrupoProdutosController();
     private CategoriaProduto cProdutos;
 
