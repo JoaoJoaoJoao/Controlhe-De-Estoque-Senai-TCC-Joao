@@ -19,7 +19,7 @@ public class ProdutoDao extends MySQL {
     private static final String SQL_GET_ALL_PRODUTO = "SELECT idProduto,nomeProduto FROM ProjetoTCC.Produto WHERE nomeProduto=?";
     private static final String SQL_GET_BY_NAME_PRODUTO = "SELECT idProduto,nomeProduto FROM ProjetoTCC.Produto WHERE nomeProduto=?";
 
-    public boolean insert(Produto produto, int idProduto) {
+    public boolean insert(Produto produto) {
 
         Connection conexao = this.getConnection();
         ResultSet generatedKeys = null;
@@ -33,7 +33,7 @@ public class ProdutoDao extends MySQL {
             preparacao.setInt(4, produto.getEstoqueIdeal());
             preparacao.setInt(5, produto.getEstoqueMin());
             preparacao.setInt(6, produto.getUnidade());
-             preparacao.setString(7, produto.getCategoria()+"");
+          //   preparacao.setString(7, produto.getCategoria()+"");
             preparacao.execute(); //Executndo o PreparedStatement
 
             //pego o id da inserção

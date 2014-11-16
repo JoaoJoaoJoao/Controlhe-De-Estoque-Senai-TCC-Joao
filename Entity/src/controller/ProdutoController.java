@@ -10,9 +10,9 @@ public class ProdutoController {
     
     private final ProdutoDao objProdutoDao = new ProdutoDao();
 
-    public String insert(Produto objProduro, int idGrupoProdutos) {
+    public String insert(Produto objProduro) {
 
-        if (objProdutoDao.insert(objProduro, idGrupoProdutos) == true) {
+        if (objProdutoDao.insert(objProduro) == true) {
             return "Salvo com sucesso";
         } else {
             return "Não foi possível cadastrar novo tipo de usuário";

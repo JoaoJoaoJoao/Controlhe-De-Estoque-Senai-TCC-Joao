@@ -22,7 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Bem Vindo"));
 
-        jButton1.setText("Cadastro Produto/Grupo");
+        jButton1.setText("Cadastro Produto/Categoria");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

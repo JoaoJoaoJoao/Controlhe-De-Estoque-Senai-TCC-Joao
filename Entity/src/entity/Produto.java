@@ -1,5 +1,7 @@
 package entity;
 
+import javax.swing.JOptionPane;
+
 public class Produto {
 
 
@@ -11,7 +13,18 @@ public class Produto {
     private int estoqueMin;
     private int unidade;
     private CategoriaProduto categoria;
-
+    
+    
+    public String VerificaQuantidade (int estoqueIdeal, int estoqueMin){
+       
+        if (estoqueIdeal < estoqueMin == true){
+           
+        }
+        return "Estoque Ideal tem que ser maior que estoque Mínimo";
+        
+        
+    }
+    
     public CategoriaProduto getCategoria() {
         return categoria;
     }
