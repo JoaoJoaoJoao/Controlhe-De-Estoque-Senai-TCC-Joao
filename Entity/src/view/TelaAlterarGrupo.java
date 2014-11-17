@@ -111,7 +111,8 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, CprodutoController.update(cProdutos));
         this.dispose();
-
+        TelaDeGrupos tl = new TelaDeGrupos();
+        tl.setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ProdutoDao extends MySQL {
 
-    private static final String SQL_INSERIR_PRODUTO = "INSERT INTO ProjetoTCC.Produto(nomeProduto,custoProduto,valorProduto,estoqueAtual,estoqueMin,unidade,cateria) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_INSERIR_PRODUTO = "INSERT INTO ProjetoTCC.Produto(nomeProduto,custoProduto,valorProduto,estoqueAtual,estoqueMin,unidade,categoria) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_EDITAR_PRODUTO = "UPDATE alimento SET nomeProduto = ? WHERE idProduto = ?";
     private static final String SQL_DELETAR_PRODUTO = "DELETE FROM ProjetoTCC.Produto WHERE idProduto = ?";
     private static final String SQL_GET_BY_ID_PRODUTO = "SELECT idProduto, nomeProduto FROM ProjetoTCC.Produto WHERE idProduto = ?";
@@ -33,7 +33,7 @@ public class ProdutoDao extends MySQL {
             preparacao.setInt(4, produto.getEstoqueIdeal());
             preparacao.setInt(5, produto.getEstoqueMin());
             preparacao.setInt(6, produto.getUnidade());
-          //   preparacao.setString(7, produto.getCategoria()+"");
+            preparacao.setString(7, produto.getCategoria()+"");
             preparacao.execute(); //Executndo o PreparedStatement
 
             //pego o id da inserção

@@ -11,6 +11,8 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
 
     public TelaCadastroFornecedor() {
         initComponents();
+        setLocationRelativeTo(null);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -256,7 +258,6 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
             fornecedor.setRua(txtRua.getText());
             fornecedor.setCep(Integer.parseInt(txtCep.getText()));
             fornecedor.setUf((String) jComboBox1.getSelectedItem());
-            
 
             JOptionPane.showMessageDialog(null, fornecedorController.insert(fornecedor));
 
