@@ -13,6 +13,7 @@ public class Produto {
     private int estoqueMin;
     private int unidade;
     private CategoriaProduto categoria;
+  
     
     
     public String VerificaQuantidade (int estoqueIdeal, int estoqueMin){

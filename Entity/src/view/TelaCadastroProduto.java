@@ -328,7 +328,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         
         if (produto.getIdProduto() == null) {
             //pego a categoria do produto
-           // produto.setCategoria( (CategoriaProduto) jComboBox1.getModel().getSelectedItem());
+            produto.setCategoria( (CategoriaProduto) jComboBox1.getModel().getSelectedItem());
 
            JOptionPane.showMessageDialog(null, produtoController.insert(produto));
 

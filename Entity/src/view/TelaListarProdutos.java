@@ -6,7 +6,7 @@ import entity.Produto;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+  
 public class TelaListarProdutos extends javax.swing.JFrame {
 
     private ProdutoController controler = new ProdutoController();
