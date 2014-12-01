@@ -1,23 +1,29 @@
 create database ProjetoTCC;
-
 use ProjetoTCC;
 
-create table ProjetoTCC.CategoriaProduto(
-idCategoriaGrupoProduto int not null auto_increment ,
-nomeGrupo varchar (50),
-primary key (idCategoriaGrupoProduto )); 
 
+CREATE TABLE IF NOT EXISTS ProjetoTCC.CategoriaProduto(
+  idCategoriaProduto INT NOT NULL AUTO_INCREMENT,
+  nomeGrupo VARCHAR(50) NOT NULL,
+  PRIMARY KEY (idCategoriaProduto));
 
-create table ProjetoTCC.Produto(
-idProduto int not null auto_increment,
-nomeProduto varchar (100),
-custoProduto double ,
-valorProduto double ,
-estoqueAtual int ,
-estoqueMin int ,
-unidade int  ,
-categoria ProjetoTCC.CategoriaProduto,
-primary key (idProduto));
+CREATE TABLE IF NOT EXISTS ProjetoTCC.Produto (
+idProduto INT NOT NULL AUTO_INCREMENT,
+  nomeProduto VARCHAR(100) NOT NULL,
+  custoProduto DOUBLE NOT NULL,
+  valorProduto DOUBLE NOT NULL,
+  estoqueAtual INT NULL,
+  estoqueMin INT NOT NULL,
+  unidade INT NULL,
+  CategoriaProduto_idCategoriaProduto INT NOT NULL,
+  PRIMARY KEY (idProduto),
+  INDEX fk_Produto_CategoriaProduto_idx(CategoriaProduto_idCategoriaProduto ASC),
+  CONSTRAINT fk_Produto_CategoriaProduto
+    FOREIGN KEY (CategoriaProduto_idCategoriaProduto)
+    REFERENCES ProjetoTCC.CategoriaProduto (idCategoriaProduto)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
 
 create table ProjetoTCC.Fornecedor(
 idFornecedor int not null auto_increment,
