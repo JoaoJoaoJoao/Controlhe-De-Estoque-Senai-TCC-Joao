@@ -20,6 +20,7 @@ public class FornecedorDao extends MySQL {
     private static final String SQL_DELETAR_FORNECEDOR = "DELETE FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
     private static final String SQL_GET_BY_ID_FORNECEDOR = "SELECT idFornecedor, nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
     private static final String SQL_GET_ALL_FORNECEDOR = "SELECT idFornecedor,nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE nomeFornecedor=?";
+     private static final String SQL_GET_BY_NAME_FORNECEDOR = "SELECT idFornecedor,nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE nomeFornecedor=?";
 
     public boolean insert(Fornecedor fornecedor) {
 
@@ -199,5 +200,36 @@ public class FornecedorDao extends MySQL {
         }
         return listaFornecedor;
     }
+      public Fornecedor getByName(String nomeProduto) {
+        Connection conexao = this.getConnection();
+
+        Fornecedor forn = new Fornecedor();
+
+        try {
+            PreparedStatement preparacao = conexao.prepareStatement(SQL_GET_BY_NAME_FORNECEDOR);
+            preparacao.setString(1, nomeProduto);
+            ResultSet resultado = preparacao.executeQuery();
+
+            while (resultado.next()) {
+                forn.setIdFornecedor(resultado.getInt("idFornecedor"));
+                forn.setNomeFornecedor(resultado.getString("nomeFornecedor"));
+
+            }
+
+            resultado.close();
+            preparacao.close();
+
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException erro) {
+                erro.printStackTrace();
+            }
+        }
+        return forn;
+    }
+
 
 }

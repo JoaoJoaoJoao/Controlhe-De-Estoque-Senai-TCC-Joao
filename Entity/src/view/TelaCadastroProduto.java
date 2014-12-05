@@ -325,26 +325,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
         produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
         produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
-        
-        if (produto.getIdProduto() == null) {
-            //pego a categoria do produto
-            produto.setCategoria( (CategoriaProduto) jComboBox1.getModel().getSelectedItem());
-
-           JOptionPane.showMessageDialog(null, produtoController.insert(produto));
-
-            // Senão altera os dados do ID já existente
-        } else {
-
-            produto.setNomeProduto(txtNome.getText());
-            produto.setCustoProduto(Double.parseDouble(txtValorCusto.getText()));
-            produto.setEstoqueIdeal(Integer.parseInt(txtEstoqueAtual.getText()));
-            produto.setEstoqueMin(Integer.parseInt(txtEstoqueMin.getText()));
-            produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
-
-            JOptionPane.showMessageDialog(rootPane, produtoController.update(produto));
-
-        }
-
+        produto.setCategoria((String) jComboBox1.getSelectedItem());
         limpaTela();
 
     }//GEN-LAST:event_jButton1ActionPerformed

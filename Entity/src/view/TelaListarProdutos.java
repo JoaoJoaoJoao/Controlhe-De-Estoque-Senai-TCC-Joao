@@ -6,7 +6,7 @@ import entity.Produto;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-  
+
 public class TelaListarProdutos extends javax.swing.JFrame {
 
     private ProdutoController controler = new ProdutoController();
@@ -35,21 +35,29 @@ public class TelaListarProdutos extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Nome", "Categoria"
+                "Nome"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Aterar");
@@ -129,12 +137,12 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         }    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+TelaDadosProduto tl = new TelaDadosProduto();
+tl.setVisible(true);
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -145,8 +153,7 @@ public class TelaListarProdutos extends javax.swing.JFrame {
 
         for (int i = 0; i < listaProduto.size(); i++) {
 
-            modelo.setValueAt(listaProduto.get(i).getIdProduto(), i, 0);
-            modelo.setValueAt(listaProduto.get(i).getNomeProduto(), i, 1);
+            modelo.setValueAt(listaProduto.get(i).getNomeProduto(), i, 0);
 
         }
     }

@@ -40,16 +40,19 @@ public class FornecedorController {
         }
 
     }
-//
-//    public List<Produto> getAll() {
-//
-//        return objFornecedorDao.getAll();
-//
-//    }
-//
-//    public Produto getById(int id) {
-//
-//        return objFornecedorDao.getById(id);
 
-   // }
+    public List<Fornecedor> getAll() {
+
+        return objFornecedorDao.getAll();
+
+    }
+
+    public Fornecedor getById(int id) {
+
+        return objFornecedorDao.getById(id);
+
+    }
+    public Fornecedor getByName(String nome) {
+       return  objFornecedorDao.getByName(nome);
+    }
 }

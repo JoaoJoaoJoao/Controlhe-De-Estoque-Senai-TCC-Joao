@@ -12,7 +12,7 @@ public class Produto {
     private int estoqueIdeal;
     private int estoqueMin;
     private int unidade;
-    private CategoriaProduto categoria;
+    private String categoria;
   
     
     
@@ -26,11 +26,11 @@ public class Produto {
         
     }
     
-    public CategoriaProduto getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaProduto categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 

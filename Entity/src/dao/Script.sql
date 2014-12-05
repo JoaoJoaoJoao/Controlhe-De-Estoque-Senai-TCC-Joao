@@ -2,12 +2,12 @@ create database ProjetoTCC;
 use ProjetoTCC;
 
 
-CREATE TABLE IF NOT EXISTS ProjetoTCC.CategoriaProduto(
+CREATE TABLEIF NOT EXISTS ProjetoTCC.CategoriaProduto(
   idCategoriaProduto INT NOT NULL AUTO_INCREMENT,
   nomeGrupo VARCHAR(50) NOT NULL,
   PRIMARY KEY (idCategoriaProduto));
 
-CREATE TABLE IF NOT EXISTS ProjetoTCC.Produto (
+CREATE TABLE  ProjetoTCC.Produto (
 idProduto INT NOT NULL AUTO_INCREMENT,
   nomeProduto VARCHAR(100) NOT NULL,
   custoProduto DOUBLE NOT NULL,
@@ -21,8 +21,7 @@ idProduto INT NOT NULL AUTO_INCREMENT,
   CONSTRAINT fk_Produto_CategoriaProduto
     FOREIGN KEY (CategoriaProduto_idCategoriaProduto)
     REFERENCES ProjetoTCC.CategoriaProduto (idCategoriaProduto)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+   );
 
 
 create table ProjetoTCC.Fornecedor(

@@ -33,7 +33,6 @@ public class ProdutoDao extends MySQL {
             preparacao.setInt(4, produto.getEstoqueIdeal());
             preparacao.setInt(5, produto.getEstoqueMin());
             preparacao.setInt(6, produto.getUnidade());
-            preparacao.setInt(7, produto.getCategoria().getIdCategoriaGrupoProdutos());
             preparacao.execute(); //Executndo o PreparedStatement
 
             //pego o id da inserção
