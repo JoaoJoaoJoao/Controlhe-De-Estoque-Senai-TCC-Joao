@@ -3,6 +3,7 @@ package view;
 import controller.ProdutoController;
 import entity.CategoriaProduto;
 import entity.Produto;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -10,7 +11,8 @@ import javax.swing.table.DefaultTableModel;
 public class TelaListarProdutos extends javax.swing.JFrame {
 
     private ProdutoController controler = new ProdutoController();
-    private List<Produto> listaProdutos;
+    private List<Produto> listaProdutos = new ArrayList<Produto>();
+    
 
     public TelaListarProdutos() {
         initComponents();
@@ -147,6 +149,7 @@ tl.setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
     private void listarProdutos(List<Produto> listaProduto) {
+        listaProdutos = controler.getAll();
 
         DefaultTableModel modelo = (DefaultTableModel) this.jTable1.getModel();
         modelo.setRowCount(listaProduto.size());

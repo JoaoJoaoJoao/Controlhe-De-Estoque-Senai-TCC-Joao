@@ -19,7 +19,7 @@ public class FornecedorDao extends MySQL {
     private static final String SQL_EDITAR_FORNECEDOR = "UPDATE ProjetoTCC.Fornecedor SET nomeFornecedor = ? WHERE idFornecedor = ?";
     private static final String SQL_DELETAR_FORNECEDOR = "DELETE FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
     private static final String SQL_GET_BY_ID_FORNECEDOR = "SELECT idFornecedor, nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE idFornecedor = ?";
-    private static final String SQL_GET_ALL_FORNECEDOR = "SELECT idFornecedor,nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE nomeFornecedor=?";
+    private static final String SQL_GET_ALL_FORNECEDOR = "SELECT idFornecedor,nomeFornecedor FROM ProjetoTCC.Fornecedor ";
      private static final String SQL_GET_BY_NAME_FORNECEDOR = "SELECT idFornecedor,nomeFornecedor FROM ProjetoTCC.Fornecedor WHERE nomeFornecedor=?";
 
     public boolean insert(Fornecedor fornecedor) {

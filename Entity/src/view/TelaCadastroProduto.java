@@ -327,6 +327,8 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         produto.setValorProduto(Double.parseDouble(txtValorSaida.getText()));
         produto.setCategoria((String) jComboBox1.getSelectedItem());
         limpaTela();
+           JOptionPane.showMessageDialog(null, produtoController.insert(produto));
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -335,6 +337,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
         TelaCadastroDeGrupo telaCadastroGrupos = new TelaCadastroDeGrupo();
         telaCadastroGrupos.setVisible(true);
         atualizaComboBox();
@@ -346,7 +349,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         jComboBox1.setModel(modelo);
         CategoriaGrupoProdutosController categoriaProdutosController = new CategoriaGrupoProdutosController();
         for (CategoriaProduto produto : categoriaProdutosController.getAll()) {
-            modelo.addElement(produto);
+            modelo.addElement(produto.getNome());
         }
     }
 

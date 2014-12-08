@@ -8,7 +8,7 @@ CREATE TABLEIF NOT EXISTS ProjetoTCC.CategoriaProduto(
   PRIMARY KEY (idCategoriaProduto));
 
 CREATE TABLE  ProjetoTCC.Produto (
-idProduto INT NOT NULL AUTO_INCREMENT,
+  idProduto INT NOT NULL AUTO_INCREMENT,
   nomeProduto VARCHAR(100) NOT NULL,
   custoProduto DOUBLE NOT NULL,
   valorProduto DOUBLE NOT NULL,
