@@ -238,19 +238,10 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
-                ""
+                "Nome"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -277,17 +268,17 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -395,9 +386,22 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, controller.update(fornecedor));
         }
         limpaTela();
+        TelaCadastroFornecedor tl2 = new TelaCadastroFornecedor();
+        tl2.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
+    private void listarFornecedores(List<Fornecedor> listadeForn) {
+        listadeForn = controller.getAll();
+        DefaultTableModel jTableT = (DefaultTableModel) this.jTable2.getModel();
+        jTableT.setNumRows(0);
 
+        for (Fornecedor f : listadeForn) {
+            jTableT.addRow(new Object[]{ f.getNomeFornecedor()});
+        }
+
+     
+    }
     private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
     }//GEN-LAST:event_txtBairroActionPerformed
 
@@ -412,17 +416,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-    private void listarFornecedores(List<Fornecedor> listadeForn) {
-        listadeForn = controller.getAll();
 
-        DefaultTableModel modelo = (DefaultTableModel) this.jTable1.getModel();
-        modelo.setRowCount(listadeForn.size());
-
-        for (int i = 0; i < listadeForn.size(); i++) {
-
-            modelo.setValueAt(listadeForn.get(i).getNomeFornecedor(), i, 0);
-        }
-    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir?");
         if (resposta == 0) {

@@ -163,16 +163,16 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
     private void listarProdutos(List<Produto> listaProduto) {
-        listaProdutos = controler.getAll();
+       
+        listaProduto = controler.getAll();
+        DefaultTableModel jTableT = (DefaultTableModel) this.jTable1.getModel();
+        jTableT.setNumRows(0);
 
-        DefaultTableModel modelo = (DefaultTableModel) this.jTable1.getModel();
-        modelo.setRowCount(listaProduto.size());
-
-        for (int i = 0; i < listaProduto.size(); i++) {
-
-            modelo.setValueAt(listaProduto.get(i).getNomeProduto(), i, 0);
-
+        for (Produto p : listaProduto) {
+            jTableT.addRow(new Object[]{ p.getNomeProduto()});
         }
+
+     
     }
 
     public static void main(String args[]) {
