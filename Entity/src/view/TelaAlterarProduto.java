@@ -48,7 +48,7 @@ public class TelaAlterarProduto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Alterar"));
 
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -288,7 +288,7 @@ public class TelaAlterarProduto extends javax.swing.JFrame {
 
         }
 
-        JOptionPane.showMessageDialog(null, produtoController.insert(produto));
+        JOptionPane.showMessageDialog(null, produtoController.update(produto));
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
