@@ -1,9 +1,9 @@
 package entity;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import javax.swing.JOptionPane;
 
 public class Produto {
-
 
     private Integer idProduto;
     private String nomeProduto;
@@ -13,19 +13,39 @@ public class Produto {
     private int estoqueMin;
     private int unidade;
     private String categoria;
-  
+    private int estoqueRetirado;
+
     
     
-    public String VerificaQuantidade (int estoqueIdeal, int estoqueMin){
-       
-        if (estoqueIdeal < estoqueMin == true){
-           
-        }
-        return "Estoque Ideal tem que ser maior que estoque Mínimo";
-        
-        
+    public void AtualizaEstoque ( int estoqueIdeal, int estoqueRetirado){
+        estoqueIdeal = estoqueIdeal - estoqueRetirado;
     }
     
+    public int getEstoqueRetirado() {
+        return estoqueRetirado;
+    }
+
+    public void setEstoqueRetirado(int estoqueRetirado) {
+        this.estoqueRetirado = estoqueRetirado;
+    }
+
+    public String Estoque(int estoqueIdeal, int estoqueRetirado) {
+        if (estoqueIdeal < estoqueRetirado == true) {
+
+        }
+
+        return "Estoque inferior a quantidade desejada";
+    }
+
+    public String VerificaQuantidade(int estoqueIdeal, int estoqueMin) {
+
+        if (estoqueIdeal < estoqueMin == true) {
+
+        }
+        return "Estoque Ideal tem que ser maior que estoque Mínimo";
+
+    }
+
     public String getCategoria() {
         return categoria;
     }
@@ -41,7 +61,6 @@ public class Produto {
     public void setUnidade(int unidade) {
         this.unidade = unidade;
     }
-    
 
     public int getEstoqueIdeal() {
         return estoqueIdeal;
@@ -58,7 +77,6 @@ public class Produto {
     public void setEstoqueMin(int estoqueMin) {
         this.estoqueMin = estoqueMin;
     }
-
 
     public Integer getIdProduto() {
         return idProduto;
@@ -91,7 +109,8 @@ public class Produto {
     public void setValorProduto(double valorProduto) {
         this.valorProduto = valorProduto;
     }
-     public static void salvar(Produto produto) {
+
+    public static void salvar(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

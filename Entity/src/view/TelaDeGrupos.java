@@ -31,7 +31,7 @@ public class TelaDeGrupos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Alterar Grupos"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Grupos"));
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,15 @@ public class TelaDeGrupos extends javax.swing.JFrame {
             new String [] {
                 "Nome"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -82,10 +90,12 @@ public class TelaDeGrupos extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jButton4.setText("Voltar");
@@ -130,16 +140,19 @@ public class TelaDeGrupos extends javax.swing.JFrame {
         }
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+        TelaPrincipal tl = new TelaPrincipal();
+        tl.setVisible(true);
         dispose();    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
 
         int selecionado = jTable1.getSelectedRow();
-        
+
         String nome = jTable1.getValueAt(selecionado, 0).toString();
 
-   CategoriaProduto cProdutos = controler.getByName(nome);
+        CategoriaProduto cProdutos = controler.getByName(nome);
 
         if (cProdutos == null) {
             JOptionPane.showMessageDialog(null, "Selecione um item da tabela");
@@ -178,14 +191,14 @@ public class TelaDeGrupos extends javax.swing.JFrame {
         }
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir?");
+        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir?");
         if (resposta == 0) {
 
             CategoriaProduto cProdutos = new CategoriaProduto();
             //Criar o metodo getByName
             cProdutos = controler.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(rootPane, controler.delete(cProdutos));
-             listarCategoriaProdutos(listaCProdutos = controler.getAll());
+            listarCategoriaProdutos(listaCProdutos = controler.getAll());
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed

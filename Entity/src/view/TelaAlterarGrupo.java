@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 
 public class TelaAlterarGrupo extends javax.swing.JFrame {
 
-    private String nomeAnterior;
    
     private CategoriaGrupoProdutosController CprodutoController = new CategoriaGrupoProdutosController();
     private CategoriaProduto cProdutos;
@@ -17,18 +16,6 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
     public TelaAlterarGrupo(CategoriaProduto cProdutos) {
         initComponents();
         setLocationRelativeTo(null);
-        if (cProdutos == null) {
-            cProdutos = new CategoriaProduto();
-
-        } else {
-
-            this.cProdutos = cProdutos;
-
-            txtNome.setText(cProdutos.getNome());
-
-        }
-        CprodutoController = new CategoriaGrupoProdutosController();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -104,8 +91,6 @@ public class TelaAlterarGrupo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-//update tbgrupo set nome = novo where nome = nomeAnterior
-       // cProdutos = new CategoriaGrupoProdutos();
 
         cProdutos.setNome(txtNome.getText());
 

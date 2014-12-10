@@ -149,30 +149,63 @@ public class TelaListarProdutos extends javax.swing.JFrame {
         }    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        TelaDadosProduto tl = new TelaDadosProduto();
-        tl.setVisible(true);
+
+        int selecionado = jTable1.getSelectedRow();
+
+        String nome = jTable1.getValueAt(selecionado, 0).toString();
+
+        Produto produtos = controler.getByName(nome);
+
+        if (produtos == null) {
+            JOptionPane.showMessageDialog(null, "Selecione um item da tabela");
+        } else {
+
+            TelaDadosProduto tl = new TelaDadosProduto();
+            tl.setVisible(true);
+        }
+
+        listaProdutos = controler.getAll();
+        listarProdutos(listaProdutos);
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    dispose();
 
+        int selecionado = jTable1.getSelectedRow();
 
+        String nome = jTable1.getValueAt(selecionado, 0).toString();
+
+        Produto produtos = controler.getByName(nome);
+
+        if (produtos == null) {
+            JOptionPane.showMessageDialog(null, "Selecione um item da tabela");
+        } else {
+
+            TelaAlterarProduto tl = new TelaAlterarProduto(produtos);
+            tl.setVisible(true);
+        }
+
+        listaProdutos = controler.getAll();
+        listarProdutos(listaProdutos);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();
+        TelaPrincipal tl = new TelaPrincipal();
+        tl.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
     private void listarProdutos(List<Produto> listaProduto) {
-       
+
         listaProduto = controler.getAll();
         DefaultTableModel jTableT = (DefaultTableModel) this.jTable1.getModel();
         jTableT.setNumRows(0);
 
         for (Produto p : listaProduto) {
-            jTableT.addRow(new Object[]{ p.getNomeProduto()});
+            jTableT.addRow(new Object[]{p.getNomeProduto()});
         }
 
-     
     }
 
     public static void main(String args[]) {

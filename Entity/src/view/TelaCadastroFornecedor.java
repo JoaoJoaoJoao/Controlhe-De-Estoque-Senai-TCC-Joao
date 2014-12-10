@@ -397,10 +397,9 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
         jTableT.setNumRows(0);
 
         for (Fornecedor f : listadeForn) {
-            jTableT.addRow(new Object[]{ f.getNomeFornecedor()});
+            jTableT.addRow(new Object[]{f.getNomeFornecedor()});
         }
 
-     
     }
     private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
     }//GEN-LAST:event_txtBairroActionPerformed
@@ -415,6 +414,8 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
+        TelaPrincipal tl = new TelaPrincipal();
+        tl.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
