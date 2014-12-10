@@ -16,7 +16,7 @@ public class FornecedorController {
         if (objFornecedorDao.insert(objFornecedor) == true) {
             return "Salvo com sucesso";
         } else {
-            return "Não foi possível cadastrar novo tipo de usuário";
+            return "Não foi possível cadastrar novo fornecedor";
         }
 
     }
@@ -26,7 +26,7 @@ public class FornecedorController {
         if (objFornecedorDao.delete(objFornecedor) == true) {
             return "Removido com sucesso";
         } else {
-            return "Não foi possível remover tipo de usuário";
+            return "Não foi possível remover o fornecedor";
         }
 
     }
@@ -36,7 +36,7 @@ public class FornecedorController {
         if (objFornecedorDao.update(objFornecedor) == true) {
             return "Atualizado com sucesso";
         } else {
-            return "Não foi possível atualizar tipo de usuário";
+            return "";
         }
 
     }

@@ -11,7 +11,7 @@ import java.util.List;
 public class ProdutoDao extends MySQL {
 
     private static final String SQL_INSERIR_PRODUTO = "INSERT INTO ProjetoTCC.Produto(nomeProduto,custoProduto,valorProduto,estoqueAtual,estoqueMin,unidade,categoria) VALUES (?,?,?,?,?,?,?)";
-    private static final String SQL_EDITAR_PRODUTO = "UPDATE alimento SET nomeProduto = ? WHERE idProduto = ?";
+    private static final String SQL_EDITAR_PRODUTO = "UPDATE ProjetoTCC.Produto SET nomeProduto = ? WHERE idProduto = ?";
     private static final String SQL_DELETAR_PRODUTO = "DELETE FROM ProjetoTCC.Produto WHERE idProduto = ?";
     private static final String SQL_GET_BY_ID_PRODUTO = "SELECT idProduto, nomeProduto FROM ProjetoTCC.Produto WHERE idProduto = ?";
     private static final String SQL_GET_ALL_PRODUTO = "SELECT idProduto,nomeProduto FROM ProjetoTCC.Produto";
@@ -66,8 +66,8 @@ public class ProdutoDao extends MySQL {
             PreparedStatement preparacao = conexao.prepareStatement(SQL_EDITAR_PRODUTO);
 
             preparacao.setString(1, produto.getNomeProduto());
-
             preparacao.setInt(2, produto.getIdProduto());
+         
 
             preparacao.execute(); //Executndo o PreparedStatement
             preparacao.close(); //Fechando o PreparedStatement

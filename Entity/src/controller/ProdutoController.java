@@ -15,7 +15,7 @@ public class ProdutoController {
         if (objProdutoDao.insert(objProduro) == true) {
             return "Salvo com sucesso";
         } else {
-            return "Não foi possível cadastrar novo tipo de usuário";
+            return "Não foi possível cadastrar produto";
         }
 
     }
@@ -25,7 +25,7 @@ public class ProdutoController {
         if (objProdutoDao.delete(objProduto) == true) {
             return "Removido com sucesso";
         } else {
-            return "Não foi possível remover tipo de usuário";
+            return "Não foi possível remover o produto";
         }
 
     }
@@ -35,7 +35,7 @@ public class ProdutoController {
         if (objProdutoDao.update(objProduto) == true) {
             return "Atualizado com sucesso";
         } else {
-            return "Não foi possível atualizar tipo de usuário";
+            return "Não foi possível atualizar o produto";
         }
 
     }
