@@ -271,7 +271,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(27, 27, 27)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -427,7 +427,7 @@ public class TelaCadastroFornecedor extends javax.swing.JFrame {
 
             Fornecedor forn = new Fornecedor();
             //Criar o metodo getByName
-            forn = controller.getByName(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+            forn = controller.getByName(jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString());
             JOptionPane.showMessageDialog(rootPane, controller.delete(forn));
             listarFornecedores(listadeForn = controller.getAll());
 
