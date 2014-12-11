@@ -15,7 +15,9 @@ public class TelaDeGrupos extends javax.swing.JFrame {
     public TelaDeGrupos() {
         initComponents();
         setLocationRelativeTo(null);
+        listaCProdutos = controler.getAll();
         listarCProduto(listaCProdutos);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -170,10 +172,10 @@ public class TelaDeGrupos extends javax.swing.JFrame {
         DefaultTableModel jTableT = (DefaultTableModel) this.jTable1.getModel();
         jTableT.setRowCount(listaGrupoP.size());
 
-        for (int i = 0; i <= listaGrupoP.size(); i++) {
+        for (int i = 0; i < listaGrupoP.size(); i++) {
 
-            jTableT.setValueAt(listaGrupoP.get(i).getIdCategoriaGrupoProdutos(), i, 0);
-            jTableT.setValueAt(listaGrupoP.get(i).getNome(), i, 1);
+            jTableT.setValueAt(listaGrupoP.get(i).getNome(), i, 0);
+            jTableT.setValueAt(listaGrupoP.get(i).getIdCategoriaGrupoProdutos(), i, 1);
 
         }
 
